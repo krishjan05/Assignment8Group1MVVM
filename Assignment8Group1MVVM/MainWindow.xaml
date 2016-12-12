@@ -5,8 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment8Group1MVVM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="575">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="lblTitle"
+               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+               Content="Class Scorecard"
+               FontSize="24" HorizontalContentAlignment="Center"/>
+        <Label Name="lblSection1" Content="Section 1"
+               Grid.Column="0" Grid.Row="1"
+               HorizontalContentAlignment="Center" FontSize="24"/>
+        <Label Name="lblSection2" Content="Section 2"
+               Grid.Column="1" Grid.Row="1"
+               HorizontalContentAlignment="Center" FontSize="24"/>
+        <Label Name="lblSection3" Content="Section 3"
+               Grid.Column="2" Grid.Row="1"
+               HorizontalContentAlignment="Center" FontSize="24"/>
+        <ListBox Name="lstSection1Marks"
+                 Grid.Column="0" Grid.Row="2"
+                 Margin="10"
+                 ItemsSource="{Binding Section1Marks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ListBox Name="lstSection2Marks"
+                 Grid.Column="1" Grid.Row="2"
+                 Margin="10"
+                 ItemsSource="{Binding Section2Marks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ListBox Name="lstSection3Marks"
+                 Grid.Column="2" Grid.Row="2"
+                 Margin="10"
+                 ItemsSource="{Binding Section3Marks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Name="btnCalculate" Content="Get Data"
+                Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="3"
+                Margin="5"
+                Click="btnCalculate_Click"/>
+        <Label Name="lblAverageSection1"
+               Grid.Column="0" Grid.Row="4"
+               Content="Average Section 1" HorizontalContentAlignment="Center"
+               FontSize="20"/>
+        <Label Name="lblAverageSection2"
+               Grid.Column="1" Grid.Row="4"
+               Content="Average Section 2" HorizontalContentAlignment="Center"
+               FontSize="20"/>
+        <Label Name="lblAverageSection3"
+               Grid.Column="2" Grid.Row="4"
+               Content="Average Section 3" HorizontalContentAlignment="Center"
+               FontSize="20"/>
+        <Label Name="lblAverageSection1Data"
+               Grid.Column="0" Grid.Row="5"
+               Content="{Binding Section1Average, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+               HorizontalContentAlignment="Right"
+               FontSize="20"/>
+        <Label Name="lblAverageSection2Data"
+               Grid.Column="1" Grid.Row="5"
+               Content="{Binding Section2Average, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalContentAlignment="Right"
+               FontSize="20"/>
+        <Label Name="lblAverageSection3Data"
+               Grid.Column="2" Grid.Row="5"
+               Content="{Binding Section3Average, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalContentAlignment="Right"
+               FontSize="20"/>
+        <Label Name="lblSectionMaxMarks"
+               Grid.Column="0" Grid.Row="6"
+               Content="All Section Maximum" HorizontalContentAlignment="Center"
+               FontSize="18"/>
+        <Label Name="lblSectionMaxMarksData"
+               Grid.Column="0" Grid.Row="7"
+               Content="{Binding AllSectionMax, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalContentAlignment="Center"
+               FontSize="18"/>
+        <Label Name="lblSectionLowMarks"
+               Grid.Column="1" Grid.Row="6"
+               Content="All Section Lowest" HorizontalContentAlignment="Center"
+               FontSize="18"/>
+        <Label Name="lblSectionLowMarksData"
+               Grid.Column="1" Grid.Row="7"
+               Content="{Binding AllSectionLow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               HorizontalContentAlignment="Center"
+               FontSize="18"/>
     </Grid>
 </Window>

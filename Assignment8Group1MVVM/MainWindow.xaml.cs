@@ -20,9 +20,17 @@ namespace Assignment8Group1MVVM
     /// </summary>
     public partial class MainWindow : Window
     {
+        Section sc;
         public MainWindow()
         {
             InitializeComponent();
+            sc = new Section();
+            DataContext = sc;
+        }
+
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            sc.SetData();
         }
     }
 }
